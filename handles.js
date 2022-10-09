@@ -1,43 +1,66 @@
 const url = require('url')
 const qs = require('querystring')
 const { resolveSoa } = require('dns')
-const { fstat } = require('fs')
+const fs = require('fs')
+const about = require('./content/about.json')
+
+
+
+const serverHandle = function (req, res) {
+    const route = url.parse(req.url)
+    const path = route.pathname 
+    const params = qs.parse(route.query)
+  
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    const content =  '<!DOCTYPE html>' +
+    '<html>' +
+    '    <head>' +
+    '        <meta charset="utf-8" />' +
+    '        <title>ECE AST</title>' +
+    '    </head>' + 
+    '    <body>' +
+    '       <p>Hello World!</p>' +
+    '    </body>' +
+    '</html>'
+    
+    switch (path) {
+      
+        case '/':
+            res.writeHead(200, {'Content-Type': 'text/html'});
+            res.end(content)
+            break;
+
+        case '/hello':
+            if ('name' in params ) res.end(`Hello, ${params.name} !` )
+            else res.end('Hello Mr. Noname')
+            break;
+        case '/about':   
+        if ('filename' in params ){ 
+            if (fs.existsSync("./content/"+params.filename)) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.write(JSON.stringify(about));
+                res.end();
+              }else {
+                res.end("File not found")
+            }
+
+        }
+            break;
+        default:
+            res.end("Erreur 404")    
+    }
+} 
 
 module.exports = {
-    serverHandle: function (req, res) {
-        const serverHandle = function (req, res) {
-            const route = url.parse(req.url)
-            const path = route.pathname 
-            const params = qs.parse(route.query)
-          
-            res.writeHead(200, {'Content-Type': 'text/plain'});
-            switch (path) {
-                case '/':
-                    res.end('You need to enter "/hello" and a name, so this text would be "hello [name] !')
-                    break;
-                case '/hello':
-                    if ('name' in params && (["NONO","NANA"].includes(params.name))) res.end('Hello, I\'m Nolwen and I\'m 20 years old.')
-                    else res.end('Hello '+ params.name)
-                    break;
-                case '/about':
-                    fs.readFile("./about.json", "utf8", callback(err, jsonString))
-                    break;
-                default:
-                    res.end("Error 404 : route not found")    
-            }
-        }   
-    }
+    serverHandle
+ 
 }
 
-function callback(err, jsonString) => {
+const callback=(err)=> {
+    console.log("Je suis tombé en erreur")
     if (err) {
         console.log("File read failed:", err)
-        return
     }
-    res.writeHead(200, {'Content-Type': 'application/json'})
-    aboutus = JSON.parse(jsonString)
-    console.log(typeof aboutus)
-    res.write(JSON.stringify(aboutus))
 }
 
 
