@@ -17,9 +17,12 @@
 > `npm start`
 
 ## API Routes
- GET '/' : return "Hello World!"
- GET '/hello?name={name}' :  return "hello, {name}",
+ GET '/' : return "Hello World!" 
+ 
+ GET '/hello?name={name}' :  return "hello, {name}"
+
  GET '/about?filename={filename}' : return the content of {filename}
+
 Autors:
   - Nassim AILALI nassim.ailali@edu.ece.fr
   - Nolwen COLLEMARE nolwen.collemare@edu.ece.fr
