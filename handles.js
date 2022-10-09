@@ -2,7 +2,7 @@ const url = require('url')
 const qs = require('querystring')
 const { resolveSoa } = require('dns')
 const fs = require('fs')
-const about = require('./content/about.json')
+
 
 
 
@@ -38,7 +38,8 @@ const serverHandle = function (req, res) {
         if ('filename' in params ){ 
             if (fs.existsSync("./content/"+params.filename)) {
                 res.writeHead(200, { 'Content-Type': 'application/json' });
-                res.write(JSON.stringify(about));
+                const fileContent = require('./content/'+params.filename)
+                res.write(JSON.stringify(fileContent));
                 res.end();
               }else {
                 res.end("File not found")
