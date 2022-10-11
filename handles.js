@@ -1,17 +1,15 @@
-const url = require('url')
-const qs = require('querystring')
-const { resolveSoa } = require('dns')
+
 const fs = require('fs')
+const port = 8080
+const hostname = "127.0.0.1";
+const express = require('express')
+const app = express();
+
+app.listen(port, hostname, function () {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
 
 
-
-
-const serverHandle = function (req, res) {
-    const route = url.parse(req.url)
-    const path = route.pathname 
-    const params = qs.parse(route.query)
-  
-    res.writeHead(200, {'Content-Type': 'text/plain'});
     const content =  '<!DOCTYPE html>' +
     '<html>' +
     '    <head>' +
@@ -22,6 +20,40 @@ const serverHandle = function (req, res) {
     '       <p>Hello World!</p>' +
     '    </body>' +
     '</html>'
+    
+
+    app.get("/", function (req, res) {
+        res.json(content);
+      });
+    
+    
+      app.get("/hello/:name", function (req, res) {
+        res.send(`Hello, ${req.params.name} !`);
+      });
+    
+    
+    
+      app.get("/about/:filename", function (req, res) { 
+            if (fs.existsSync("./content/"+req.params.filename)) {
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                const fileContent = require('./content/'+params.filename)
+                res.write(JSON.stringify(fileContent));
+                res.end();
+              }else {
+                res.end("File not found")
+            } 
+      });
+    
+  
+
+/*
+const serverHandle = (req,res) => {
+    const route = url.parse(req.url)
+    const path = route.pathname 
+    const params = qs.parse(route.query)
+  
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+
     
     switch (path) {
       
@@ -51,19 +83,9 @@ const serverHandle = function (req, res) {
             res.end("Erreur 404")    
     }
 } 
-
+*/
 module.exports = {
     serverHandle
  
 }
-
-const callback=(err)=> {
-    console.log("Je suis tombé en erreur")
-    if (err) {
-        console.log("File read failed:", err)
-    }
-}
-
-
-
 
