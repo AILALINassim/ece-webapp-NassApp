@@ -23,6 +23,20 @@
 
  GET '/about?filename={filename}' : return the content of {filename}
 
+ GET /articles - list all articles
+
+ POST /articles - add a new article
+
+ GET /articles/:articleId - get an article by ID
+
+ GET /articles/:articleId/comments - get all comments of the article with articleId
+
+ POST /articles/:articleId/comments - add a new comment to a specific article with articleId
+
+ GET /articles/:articleId/comments/:commentId - get a comment with commentId of the article with articleId
+
+
+
 Autors:
   - Nassim AILALI nassim.ailali@edu.ece.fr
   - Nolwen COLLEMARE nolwen.collemare@edu.ece.fr
