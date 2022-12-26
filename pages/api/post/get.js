@@ -1,22 +1,41 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient();
+import { supabase } from '../../api/supabase'
 
 export default async function handler(req, res) {
-    try {
-        const posts = await prisma.posts.findMany({
-          include: {
-            users: true,
-            comments: { include: { users: true } },
-            likes: { include: { users: true } },
-          },
-          orderBy: { createdAt: "desc" },
-        });
-        res
-          .status(200)
-          .json({ posts, message: "Tous les posts ont été récupérés !" });
-      } catch (error) {
-        console.log(error);
-        res.status(500).json({ error });
-      }
+
+  let statusCode = 200;
+  let responseMessage = "Tous les posts ont été récupérés !";
+  let responseBody = null;
+
+  const { data, error } = await supabase
+    .from('posts')
+    .select(`*,
+    likes (
+     *,
+     profiles (
+       *
+   )
+    ),
+    comments (
+        *,
+        profiles (
+          *
+      )
+    ),
+    profiles (
+        *
+    )`
+    )
+
+  if (error) {
+    console.log(error);
+    statusCode = 500;
+    responseMessage = "Error while fetching api."
+    responseBody = error;
+  }
+  if (data) {
+    responseBody = data;
+  }
+
+  res.status(statusCode).json({ responseBody, responseMessage });
+
 }

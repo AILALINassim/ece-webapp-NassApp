@@ -9,7 +9,7 @@ export default function Contact() {
   const router = useRouter()
   useEffect(() => {
     if (!(user || loading)) {
-      router.push('/login')
+      router.push('/')
     }
   }, [user, loading, router])
   const onClickLogout = function() {
