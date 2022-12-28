@@ -1,34 +1,82 @@
+# Blogging application - ECE Webtech project
+
 This is a [Next.js] web application project.
 
-## Getting Started
+## Production 
 
-First, run the development server:
+- Vercel URL: https://nassapp.vercel.app/
+- Supabase project URL: https://app.supabase.com/project/wfqyvuitoqiyzupcwfmg
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Usage
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+*how to start and use the application, run the tests, ...*
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+* Clone this repository, from your local machine:
+  ```
+  git clone ...
+  cd ...
+  ```
+* Start the the application
+  ```bash
+  cd app
+  # Install dependencies (use yarn or npm)
+  npm install
+  npm run build
+  npm start
+  ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Authors
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Nassim AILALI nassim.ailali@edu.ece.fr
+- Nolwen COLLEMARE nolwen.collemare@edu.ece.fr
 
-## Learn More
+## Tasks
+  
+**Project management:**
 
-To learn more about Next.js, take a look at the following resources:
+* Naming convention   
+  *place your graduation and comments*
+* Project structure   
+  *place your graduation and comments*
+* Git   
+  *place your graduation and comments*
+* Code quality   
+  *place your graduation and comments*
+* Design, UX, and content   
+  *place your graduation and comments*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Application development:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+* Home page   
+  *place your graduation and comments*
+* Login and profile page   
+  *place your graduation and comments*
+* New articles creation   
+  *place your graduation and comments*
+* New comment creation   
+  *place your graduation and comments*
+* Resource access control   
+  *place your graduation and comments*
+* Article modification   
+  *place your graduation and comments*
+* Article removal   
+  *place your graduation and comments*
+* Comment modification   
+  *place your graduation and comments*
+* Comment removal   
+  *place your graduation and comments*
+* Account settings   
+  *place your graduation and comments*
+* WYSIWYG integration   
+  *place your graduation and comments*
+* Gravatar integration   
+  *place your graduation and comments*
+* Light/dark theme   
+  *place your graduation and comments*
+* Accent color selection   
+  *place your graduation and comments*
 
-## Deploy on Vercel
+## Bonus
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* Task title   
+  *place your graduation and comments*
