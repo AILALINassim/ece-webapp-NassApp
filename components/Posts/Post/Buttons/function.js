@@ -14,7 +14,7 @@ async function likePost(
   setDisplayPage
 ) {
   try {
-    await fetch("http://localhost:3000/api/post/like/" + postId, {
+    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/like/" + postId, {
       method: "POST",
       credentials: "include",
       headers: {
@@ -40,7 +40,7 @@ async function likePost(
  */
 async function deletePost(postId,userId,getAllPosts, setDataPosts, setDisplayPage) {
   try {
-    await fetch("http://localhost:3000/api/post/delete/" + postId, {
+    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/delete/" + postId, {
       method: "DELETE",
       credentials: "include",
     });

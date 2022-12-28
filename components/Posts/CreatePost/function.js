@@ -18,7 +18,7 @@ async function createPost(
     formData.append("title", postTitle);
     formData.append("tag", postTag);
     try {
-      await fetch("http://localhost:3000/api/post/create", {
+      await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/create", {
         method: "POST",
         credentials: "include",
         body: formData,
@@ -29,7 +29,7 @@ async function createPost(
     }
   } else {
     try {
-      await fetch("http://localhost:3000/api/post/create", {
+      await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/create", {
         method: "POST",
         credentials: "include",
         headers: {

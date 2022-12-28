@@ -6,6 +6,7 @@ export default async function handler(req, res) {
   let responseMessage = "Tous les posts ont été récupérés !";
   let responseBody = null;
 
+
   const { data, error } = await supabase
     .from('posts')
     .select(`*,

@@ -11,7 +11,7 @@ async function updatePost(
 
   if (postEditImg !== null) {
     try {
-      await fetch("http://localhost:3000/api/post/update", {
+      await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/update", {
         method: "PUT",
         credentials: "include",
         body: {
@@ -25,7 +25,7 @@ async function updatePost(
     }
   } else {
     try {
-      await fetch("http://localhost:3000/api/post/update", {
+      await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/update", {
         method: "PUT",
         credentials: "include",
         headers: {

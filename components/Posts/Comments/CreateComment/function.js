@@ -16,7 +16,7 @@ async function createComment(
   setDisplayPage
 ) {
   try {
-    await fetch("http://localhost:3000/api/comment/create", {
+    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/comment/create", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -41,7 +41,7 @@ async function createComment(
  */
 async function getUserAvatar(userId, setImgSrc) {
   try {
-    const resultApi = await fetch("http://localhost:3000/api/user/" + userId, {
+    const resultApi = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/" + userId, {
       method: "GET",
       credentials: "include",
     });
