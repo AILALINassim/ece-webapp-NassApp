@@ -6,7 +6,7 @@ async function likePost(
   setDisplayPage
 ) {
   try {
-    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/like/" + postId, {
+    await fetch("/api/post/like/" + postId, {
       method: "POST",
       credentials: "include",
       headers: {
