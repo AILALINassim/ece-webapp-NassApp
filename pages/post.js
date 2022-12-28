@@ -3,7 +3,7 @@ import { useState } from "react";
 import Header from "../components/Header";
 import Posts from "../components/Posts";
 import Footer from "../components/Footer";
-import Unauthorized from "../components/Unauthorized";
+
 
 import { Div, Container } from "./stylePost";
 
@@ -22,7 +22,7 @@ function Feed() {
           <Footer />
         </Div>
       ) : (
-        <Unauthorized />
+        <p>UNAUTHORIZED</p>
       )}
     </>
   );
