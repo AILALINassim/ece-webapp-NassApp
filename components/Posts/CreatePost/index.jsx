@@ -11,12 +11,12 @@ function CreatePost({ setDataPosts, setDisplayPage }) {
 
   const [postMessage, setPostMessage] = useState("");
   const [postTitle, setPostTitle] = useState("");
+  const [postTag, setPostTag] = useState("");
   const [postImg, setPostImg] = useState(null);
   const [fileName, setFileName] = useState("");
   const [userId,setUserId] = useState("");
   const ref = useRef();
 
-  const postDetails = ["title", "content", "categories", "tags"]
   const handleChange = (e) => {
     setPostImg(e.target.files[0]);
     setFileName(e.target.files[0].name);
@@ -24,10 +24,12 @@ function CreatePost({ setDataPosts, setDisplayPage }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     createPost(
       postImg,
       postMessage,
       postTitle,
+      postTag,
       userId,
       getAllPosts,
       setDataPosts,
@@ -46,37 +48,18 @@ function CreatePost({ setDataPosts, setDisplayPage }) {
     <form onSubmit={handleSubmit}>
       <div className="mb-5">
         <label
-          for="name"
-          name="title"
-          id="title"
-          maxLength="255"
-          onChange={(e) => setPostMessage(e.target.value)}
-          required
-          value={postTitle}
           className="mb-3 block text-base font-medium text-[#07074D]"
         >
           Title
         </label>
         <input
-          type="text"
-          name="name"
-          id="name"
-        
-          className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
-        />
-      </div>
-      <div className="mb-5">
-        <label
-          for="email"
-          className="mb-3 block text-base font-medium text-[#07074D]"
-        >
-          Content
-        </label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-         
+          for="title"
+          name="title"
+          id="title"
+          maxLength="255"
+          onChange={(e) => setPostTitle(e.target.value)}
+          required
+          value={postTitle}
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         />
       </div>
@@ -88,10 +71,14 @@ function CreatePost({ setDataPosts, setDisplayPage }) {
           Tag
         </label>
         <input
-          type="text"
-          name="subject"
-          id="subject"
-         
+          for="tag"
+          name="tag"
+          id="tag"
+          maxLength="255"
+          onChange={(e) => setPostTag(e.target.value)}
+          required
+          value={postTag}
+
           className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
         />
       </div>

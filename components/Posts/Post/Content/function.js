@@ -1,12 +1,4 @@
-/**
- * Update the post content
- * @param {String} postEditMessage
- * @param {File} postEditImg
- * @param {Number} postId
- * @param {Function} getAllPosts
- * @param {Function} setDataPosts
- * @param {Function} setDisplayPage
- */
+
 async function updatePost(
   postEditMessage,
   postEditImg,
@@ -18,9 +10,6 @@ async function updatePost(
 
 
   if (postEditImg !== null) {
-    /*    const formData = new FormData();
-    formData.append("message", postEditMessage);
-    formData.append("imageUrl", postEditImg); */
     try {
       await fetch("http://localhost:3000/api/post/update", {
         method: "PUT",

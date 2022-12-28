@@ -81,7 +81,12 @@ function Content({
           </div>
         </Form>
       ) : (
-        <>
+        <div className="relative">
+        <p  className="font-light absolute top-0 right-0"  > 
+        <div class="bg-blue-100 inline-flex items-center text-sm rounded mt-2 mr-1 overflow-hidden">
+      <span class="ml-2 mr-1 leading-relaxed truncate max-w-xs px-1" x-text="tag">{post.tag}</span>
+    </div>
+        </p>
           <p  style={{fontWeight: 'bold'}} > Title : {post.title.toUpperCase()}</p>
           <p>{post.message}</p>
 
@@ -90,7 +95,7 @@ function Content({
               <img src={`http://localhost:3000${post.imageUrl}`} alt="post" />
             </Div>
           ) : null}
-        </>
+        </div>
       )}
     </>
   );

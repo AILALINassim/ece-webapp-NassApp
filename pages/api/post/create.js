@@ -13,6 +13,8 @@ export default async function handler(req, res) {
       message: req.body.message,
       imageUrl: `/images/posts/${req.file.filename}`,
       profile_id: req.body.user_id,
+      title : req.body.title,
+      tag : req.body.tag
     };
     
 
@@ -20,6 +22,8 @@ export default async function handler(req, res) {
     dataToInsert = {
       message: req.body.message,
       profile_id : req.body.user_id,
+      title : req.body.title,
+      tag : req.body.tag
     };
   }
 

@@ -10,13 +10,13 @@ export default async function handler(req, res) {
   const { data, error } = await supabase
     .from('likes')
     .select(`*`)
-    .eq('profile_id', req.body.user_id)
+    .eq('post_id', req.body.post_id,'profile_id', req.body.user_id)
 
   if (data.length > 0) {
     await supabase
       .from('likes')
       .delete(`*`)
-      .eq('profile_id', req.body.user_id)
+      .eq('post_id', req.body.post_id,'profile_id', req.body.user_id)
   } else {
     const { error } = await supabase
       .from('likes')
