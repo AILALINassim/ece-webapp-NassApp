@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Gravatar from 'react-gravatar'
 
 import Content from "./Content";
 import Buttons from "./Buttons";
@@ -14,37 +15,18 @@ import {
 
 function Post({ post, setDataPosts, setDisplayPage }) {
   const [editPost, setEditPost] = useState();
-  console.log("ICI",post.updatedat);
+  console.log("ICI",post.profiles);
   return (
     <Container key={post.user_id}>
-      {/* Avatar */}
-      {post.users?.avatarUrl ? (
-        <Avatar
-          src={`http://localhost:3000${post.users.avatarUrl}`}
-          alt="avatar"
-        />
-      ) : (
-        <Avatar src={`http://localhost:3000/images/default.png`} alt="avatar" />
-      )}
+      <Gravatar email={post.profiles.email} size={150}/>
 
       <Div>
         <NameAndDate>
-          {/* Name */}
           <UserName>
-            {post.profiles.full_name}
+           Fullname : {post.profiles.full_name}
           </UserName>
-
-          
-          <span>
-            {post.updatedat ? <Modified>(modifié)</Modified> : null}
-            {/* Date{Intl.DateTimeFormat("fr-FR", {
-              dateStyle: "full",
-              timeStyle: "short",
-            }).format(new Date(post.createdat))} */}
-          </span>
         </NameAndDate>
 
-        {/* Content */}
         <Content
           post={post}
           setDataPosts={setDataPosts}

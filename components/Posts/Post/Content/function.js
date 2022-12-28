@@ -15,15 +15,20 @@ async function updatePost(
   setDataPosts,
   setDisplayPage
 ) {
+
+
   if (postEditImg !== null) {
-    const formData = new FormData();
+    /*    const formData = new FormData();
     formData.append("message", postEditMessage);
-    formData.append("imageUrl", postEditImg);
+    formData.append("imageUrl", postEditImg); */
     try {
-      await fetch("http://localhost:3000/api/post/" + postId, {
+      await fetch("http://localhost:3000/api/post/update", {
         method: "PUT",
         credentials: "include",
-        body: formData,
+        body: {
+          message : postEditMessage,
+          imageUrl : postEditImg
+        },
       });
       getAllPosts(setDataPosts, setDisplayPage);
     } catch (error) {
@@ -31,13 +36,16 @@ async function updatePost(
     }
   } else {
     try {
-      await fetch("http://localhost:3000/api/post/" + postId, {
+      await fetch("http://localhost:3000/api/post/update", {
         method: "PUT",
         credentials: "include",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ message: postEditMessage }),
+        body: JSON.stringify({ 
+          message: postEditMessage,
+          post_id : postId
+        }),
       });
       getAllPosts(setDataPosts, setDisplayPage);
     } catch (error) {

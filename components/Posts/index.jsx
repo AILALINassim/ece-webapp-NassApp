@@ -17,24 +17,20 @@ function Posts({ setDisplayPage }) {
 
   return (
     <>
-      {/* Create a Post */}
       <CreatePost
         setDataPosts={setDataPosts}
         setDisplayPage={setDisplayPage}
       />
 
-      {/* Display posts */}
       {dataPosts.map((post) => {
         return (
           <Container key={post.id}>
-            {/* Post */}
             <Post
               post={post}
               setDataPosts={setDataPosts}
               setDisplayPage={setDisplayPage}
             />
 
-            {/* Comments */}
             <Comments
               post={post}
               setDataPosts={setDataPosts}

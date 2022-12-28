@@ -7,7 +7,7 @@ import Button from "../../../../utils/styles/button";
 import { getAllPosts } from "../../function";
 import { updatePost } from "./function";
 import { Form, Div } from "./style";
-
+import Gravatar from "react-gravatar"
 function Content({
   post,
   setDataPosts,
@@ -44,7 +44,6 @@ function Content({
     <>
       {editPost ? (
         <Form onSubmit={() => handleSubmit(post.id)}>
-          {/* Message textarea */}
           <textarea
             value={postEditMessage}
             maxLength="255"
@@ -52,13 +51,11 @@ function Content({
             onChange={(e) => setPostEditMessage(e.target.value)}
           />
 
-          {/* Image */}
           {post.imageUrl ? (
             <img src={`http://localhost:3000${post.imageUrl}`} alt="post" />
           ) : null}
-
+          
           <div>
-            {/* File input */}
             <span>{fileName}</span>
             <label htmlFor="postEditImage">
               <FontAwesomeIcon icon={faImage} size="2x" />
@@ -70,12 +67,10 @@ function Content({
               onChange={handleChange}
             />
 
-            {/* Submit button */}
             <Button type="submit" smallButton>
               MODIFIER
             </Button>
 
-            {/* Cancel button */}
             <Button
               type="button"
               onClick={() => setEditPost(false)}
@@ -87,10 +82,9 @@ function Content({
         </Form>
       ) : (
         <>
-          {/* Message */}
+          <p  style={{fontWeight: 'bold'}} > Title : {post.title.toUpperCase()}</p>
           <p>{post.message}</p>
 
-          {/* Image */}
           {post.imageUrl ? (
             <Div>
               <img src={`http://localhost:3000${post.imageUrl}`} alt="post" />

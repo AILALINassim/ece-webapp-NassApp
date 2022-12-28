@@ -15,7 +15,7 @@ function DeleteButton({ setDataPosts, setDisplayPage, comment }) {
   return (
     <Container>
       {/* Delete button */}
-      {comment.user_id === userId || userId === 1 ? (
+      {comment.profile_id === userId || userId === 1 ? (
         <button onClick={() => handleDelete(comment.id)}>
           <FontAwesomeIcon icon={faTrash} />
         </button>

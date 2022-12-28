@@ -1,7 +1,5 @@
 import { useState, useEffect } from "react";
 
-import Button from "../../../../utils/styles/button";
-
 import { getAllPosts } from "../../function";
 import { createComment, getUserAvatar } from "./function";
 import { Form } from "./style";
@@ -32,8 +30,6 @@ function CreateComment({ post, setDataPosts, setDisplayPage }) {
   return (
     <>
       <Form onSubmit={handleSubmit}>
-        {/* Avatar */}
-        <img src={`http://localhost:3000${imgSrc}`} alt="avatar" />
 
         {/* Message input */}
         <input
@@ -46,9 +42,9 @@ function CreateComment({ post, setDataPosts, setDisplayPage }) {
         />
 
         {/* Submit button */}
-        <Button type="submit" smallButton>
+        <button type="submit" className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-4 text-base font-semibold text-white outline-none" smallButton>
           RÉPONDRE
-        </Button>
+        </button>
       </Form>
     </>
   );

@@ -26,7 +26,9 @@ export default async function handler(req, res) {
           post_id: req.body.post_id,
         }
       )
-      console.log(error);
+      statusCode = 500;
+      responseBody = [];
+      responseMessage = error;
   }
   res.status(statusCode).json({ responseBody, responseMessage });
 

@@ -7,7 +7,6 @@ export const Container = styled.div`
   max-width: 1024px;
   margin: 0 auto;
   padding: 20px 0 0 0;
-  border-top: 1px solid ${color.tertiary};
 
   img {
     max-width: 40px;

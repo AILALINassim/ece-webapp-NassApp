@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     let statusCode = 200;
     let responseMessage = "Le commentaire a été créé !";
     let responseBody = null;
-    
+
     const { data, error } = await supabase
         .from('comments')
         .insert({

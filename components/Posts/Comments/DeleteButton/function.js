@@ -12,7 +12,7 @@ async function deleteComment(
   setDisplayPage
 ) {
   try {
-    await fetch("http://localhost:3000/api/comment/" + commentId, {
+    await fetch("http://localhost:3000/api/comment/delete/" + commentId, {
       method: "DELETE",
       credentials: "include",
     });

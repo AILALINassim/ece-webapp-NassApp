@@ -1,32 +1,41 @@
-import { PrismaClient } from '@prisma/client'
-
-const prisma = new PrismaClient();
+import { supabase } from '../../api/supabase'
 
 export default async function handler(req, res) {
-  try {
-    // Check if the request have an image, if yes, create the post with the image
-    if (req.file !== undefined) {
-      const post = await prisma.posts.create({
-        data: {
-          message: req.body.message,
-          imageUrl: `/images/posts/${req.file.filename}`,
-          user_id: Number(req.body.user_id),
-        },
-      });
-      res.status(200).json({ post, message: "Le post a été créé !" });
-    } else {
-      // Create the post without image
-      const post = await prisma.posts.create({
-        data: {
-          message: req.body.message,
-          user_id: Number(req.body.user_id),
-        },
-      });
-      res.status(200).json({ post, message: "Le post a été créé !" });
-    }
-  } catch (error) {
-    console.log(error);
 
-    res.status(500).json({ error });
+  console.log(req.body);
+
+  let statusCode = 200;
+  let responseMessage = "Le post a été créé !";
+  let responseBody = null;
+  let dataToInsert = {};
+  if (req.file !== undefined) {
+    dataToInsert = {
+      message: req.body.message,
+      imageUrl: `/images/posts/${req.file.filename}`,
+      profile_id: req.body.user_id,
+    };
+    
+
+  } else {
+    dataToInsert = {
+      message: req.body.message,
+      profile_id : req.body.user_id,
+    };
   }
+
+  const { data, error } = await supabase
+      .from('posts')
+      .insert(dataToInsert)
+      .eq('profile_id', req.body.user_id)
+
+  if (error) {
+    statusCode = 500;
+    responseMessage = error;
+    responseBody = []
+  } else {
+    responseBody = data;
+  }
+
+  res.status(statusCode).json({ responseBody, responseMessage });
+
 }

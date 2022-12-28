@@ -9,14 +9,30 @@ import Account from '../components/Account'
 import Gravatar from 'react-gravatar'
 import Footer from '../components/Footer.js'
 
-const Home = () => {
+const Login = () => {
   const session = useSession()
   const supabase = useSupabaseClient()
 
   return (
     <Layout>
-      
+      <div>
+        {!session ? (
+          <>
+          <Auth 
+            providers={['github']} 
+            supabaseClient={supabase}
+            appearance={{ theme: ThemeSupa }} 
+            theme="dark"
+          />
+          </>
+    
+        ) : (
+          <>
+            <Account session={session} />
+          </>
+        )}
+      </div>
     </Layout>    
   )
 }
-export default Home
+export default Login

@@ -27,7 +27,6 @@ export default async function handler(req, res) {
     )
 
   if (error) {
-    console.log(error);
     statusCode = 500;
     responseMessage = "Error while fetching api."
     responseBody = error;

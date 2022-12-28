@@ -23,9 +23,10 @@ function Buttons({
   };
 
   const handleDelete = (postId) => {
-    deletePost(postId, getAllPosts, setDataPosts, setDisplayPage);
+    deletePost(postId, userId,getAllPosts, setDataPosts, setDisplayPage);
   };
 
+  console.log("Test:",post.profile_id," //--//",userId);
   return (
     <Div container>
       <Div>
@@ -41,14 +42,14 @@ function Buttons({
 
         <div>
           {/* Edit button */}
-          {editPost ? null : post.user_id === userId || userId === 1 ? (
+          {editPost ? null : post.profile_id === userId || userId === 1 ? (
             <button onClick={(e) => setEditPost(true)}>
               <FontAwesomeIcon icon={faPenToSquare} />
             </button>
           ) : null}
 
           {/* Delete button */}
-          {post.user_id === userId || userId === 1 ? (
+          {post.profile_id === userId || userId === 1 ? (
             <button onClick={() => handleDelete(post.id)}>
               <FontAwesomeIcon icon={faTrash} />
             </button>

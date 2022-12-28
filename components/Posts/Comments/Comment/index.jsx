@@ -14,7 +14,7 @@ function Comment({ comment }) {
         <img src={`http://localhost:3000/images/default.png`} alt="avatar" />
       )}*/}
 
-      <div className="bg-grey">
+      <div className="rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium outline-none">
         <div>
           {/* Name */}
           <span>

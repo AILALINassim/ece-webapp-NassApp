@@ -17,7 +17,7 @@ const Button = styled.button`
     transform: scale(1.05);
   }
 
-  ${({ greyButton }) => greyButton && `background-color: ${color.tertiary};`}
+  ${({ greyButton }) => greyButton && `background-color: #6A64F1;`}
   ${({ smallButton }) =>
     smallButton &&
     `width: auto; 

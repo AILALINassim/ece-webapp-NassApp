@@ -38,9 +38,9 @@ async function likePost(
  * @param {Function} setDataPosts
  * @param {Function} setDisplayPage
  */
-async function deletePost(postId, getAllPosts, setDataPosts, setDisplayPage) {
+async function deletePost(postId,userId,getAllPosts, setDataPosts, setDisplayPage) {
   try {
-    await fetch("http://localhost:3000/api/post/" + postId, {
+    await fetch("http://localhost:3000/api/post/delete/" + postId, {
       method: "DELETE",
       credentials: "include",
     });

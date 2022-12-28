@@ -1,15 +1,7 @@
-/**
- * Create a post
- * @param {File} postImg
- * @param {String} postMessage
- * @param {Number} userId
- * @param {Function} getAllPosts
- * @param {Function} setDataPosts
- * @param {Function} setDisplayPage
- */
 async function createPost(
   postImg,
   postMessage,
+  postTitle,
   userId,
   getAllPosts,
   setDataPosts,
@@ -20,6 +12,7 @@ async function createPost(
     formData.append("message", postMessage);
     formData.append("imageUrl", postImg);
     formData.append("user_id", userId);
+    formData.append("title", postTitle);
     try {
       await fetch("http://localhost:3000/api/post/create", {
         method: "POST",
@@ -41,6 +34,7 @@ async function createPost(
         body: JSON.stringify({
           message: postMessage,
           user_id: userId,
+          title: postTitle,
         }),
       });
       getAllPosts(setDataPosts, setDisplayPage);

@@ -20,10 +20,12 @@
     "@tailwindcss/forms": "^0.5.3",
     "@tailwindcss/typography": "^0.5.8",
     "axios": "^1.2.1",
+    "gravatar": "^1.8.2",
     "markdown-it": "^13.0.1",
     "next": "13.0.5",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
+    "react-gravatar": "^2.6.3",
     "styled-components": "^5.3.6",
     "tailwindcss-font-inter": "^3.0.1"
   },
