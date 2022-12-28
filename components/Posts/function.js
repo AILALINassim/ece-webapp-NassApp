@@ -1,6 +1,6 @@
 async function getAllPosts(setDataPosts, setDisplayPage) {
   try {
-    const resultApi = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/get", {
+    const resultApi = await fetch("/api/post/get", {
       method: "GET",
       credentials: "include",
     });
