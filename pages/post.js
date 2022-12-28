@@ -5,7 +5,7 @@ import Posts from "../components/Posts";
 import Footer from "../components/Footer";
 
 
-import { Div, Container } from "./stylePost";
+import { Div, Container } from "../utils/styles/stylePost";
 
 function Feed() {
   const [displayPage, setDisplayPage] = useState(true);
