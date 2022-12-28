@@ -12,7 +12,7 @@ async function deleteComment(
   setDisplayPage
 ) {
   try {
-    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/comment/delete/" + commentId, {
+    await fetch("/api/comment/delete/" + commentId, {
       method: "DELETE",
       credentials: "include",
     });

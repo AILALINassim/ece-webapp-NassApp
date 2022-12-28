@@ -1,12 +1,4 @@
-/**
- * Create a comment
- * @param {String} commentMessage 
- * @param {Number} userId 
- * @param {Number} postId 
- * @param {Function} getAllPosts 
- * @param {Function} setDataPosts 
- * @param {Function} setDisplayPage 
- */
+
 async function createComment(
   commentMessage,
   userId,
@@ -16,7 +8,7 @@ async function createComment(
   setDisplayPage
 ) {
   try {
-    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/comment/create", {
+    await fetch("/api/comment/create", {
       method: "POST",
       credentials: "include",
       headers: {
@@ -34,14 +26,9 @@ async function createComment(
   }
 }
 
-/**
- * Get the user's avatar
- * @param {Number} userId 
- * @param {Function} setImgSrc 
- */
 async function getUserAvatar(userId, setImgSrc) {
   try {
-    const resultApi = await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/user/" + userId, {
+    const resultApi = await fetch("/api/user/" + userId, {
       method: "GET",
       credentials: "include",
     });

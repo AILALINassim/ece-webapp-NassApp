@@ -1,11 +1,3 @@
-/**
- * Like a post
- * @param {Number} postId
- * @param {Number} userId
- * @param {Function} getAllPosts
- * @param {Function} setDataPosts
- * @param {Function} setDisplayPage
- */
 async function likePost(
   postId,
   userId,
@@ -31,16 +23,9 @@ async function likePost(
   }
 }
 
-/**
- * Delete a post
- * @param {Number} postId
- * @param {Function} getAllPosts
- * @param {Function} setDataPosts
- * @param {Function} setDisplayPage
- */
 async function deletePost(postId,userId,getAllPosts, setDataPosts, setDisplayPage) {
   try {
-    await fetch(process.env.NEXT_PUBLIC_HOST_URL+"/api/post/delete/" + postId, {
+    await fetch("/api/post/delete/" + postId, {
       method: "DELETE",
       credentials: "include",
     });
