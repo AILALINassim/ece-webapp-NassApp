@@ -1,6 +1,6 @@
 # Blogging application - ECE Webtech project
 
-This is a [Next.js] web application project.
+Nass App is a [Next.js] web application project. The database is stored in Supabase.
 
 ## Production 
 
@@ -9,12 +9,10 @@ This is a [Next.js] web application project.
 
 ## Usage
 
-*how to start and use the application, run the tests, ...*
 
 * Clone this repository, from your local machine:
-  ```
-  git clone ...
-  cd ...
+  ```bash
+  git clone https://github.com/AILALINassim/ece-webapp-ailali-collemare.git
   ```
 * Start the the application
   ```bash
@@ -35,48 +33,55 @@ This is a [Next.js] web application project.
 **Project management:**
 
 * Naming convention   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Project structure   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Git   
-  *place your graduation and comments*
+  *Partially done, 1/2.*
 * Code quality   
-  *place your graduation and comments*
+  *Done, 4/4.*
 * Design, UX, and content   
-  *place your graduation and comments*
+  *Fairly good, 2/4.*
 
 **Application development:**
 
 * Home page   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Login and profile page   
-  *place your graduation and comments*
+  *Done but the buttons are on the profile page not in header, 4/4.*
 * New articles creation   
-  *place your graduation and comments*
+  *Articles and form are on the same page and there is no categories (only title, content, tags), 5/6.*
 * New comment creation   
-  *place your graduation and comments*
+  *Done, 4/4.*
 * Resource access control   
-  *place your graduation and comments*
+  *RLS is enabled only on profiles table (linked to posts, comments and likes), so only users can update their own profiles, posts, etc. 6/6.*
 * Article modification   
-  *place your graduation and comments*
+  *Done, but there's no editing page. Users just edit on the same page they post, 4/4.*
 * Article removal   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Comment modification   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Comment removal   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Account settings   
-  *place your graduation and comments*
+  *Done but the user can't his modify his email or language, 3/4.*
 * WYSIWYG integration   
-  *place your graduation and comments*
+  *I think it is done but not sure we understood what it is ...*
 * Gravatar integration   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Light/dark theme   
-  *place your graduation and comments*
+  *Done, 2/2.*
 * Accent color selection   
-  *place your graduation and comments*
+  *Not done.*
 
 ## Bonus
 
-* Task title   
-  *place your graduation and comments*
+* Contact Us   
+  *Only the front from the template.*
+* Likes on articles  
+  *Users can like articles.*
+
+## Total points from self-evaluation
+
+* ∼ 47 
+
